@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "live": "live-server",
-    "babel": "babel index.js --out-file bundle.js --watch"
+    "babel": "babel src --out-file public/bundle.js -w --source-maps inline --sourceMaps=true"
   },
   "author": "",
   "license": "ISC",

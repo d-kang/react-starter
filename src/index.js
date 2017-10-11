@@ -9,7 +9,7 @@ class App extends React.Component {
 
   render = () =>
     <div>
-      <div>{this.myStr + ' ' + this.state.count}</div>
+      <div>{ this.myStr + ' ' + this.state.count}</div>
       <input
         type="button"
         value='button'
