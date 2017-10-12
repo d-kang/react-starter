@@ -4,10 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "babel": "babel src --out-file public/bundle.js -w --source-maps inline --sourceMaps=true",
-    "webpack": "webpack --config webpack.config.js",
-    "devserver": "webpack-dev-server",
-    "webpack2": "webpack -wd"
+    "devserver": "webpack-dev-server"
   },
   "author": "",
   "license": "ISC",
