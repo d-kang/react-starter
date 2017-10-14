@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 class App extends Component {
   state ={
-    orange: 'banana',
+    orange: 'bananas',
   }
   static propTypes = {
     increment: PropTypes.func.isRequired,
@@ -14,7 +14,7 @@ class App extends Component {
   }
   addCount = () => {
     this.props.increment();
-    this.setState({orange: 'oranges'})
+    this.setState({orange: 'orange'})
   }
   subCount = () => {
     this.props.decrement();
@@ -24,8 +24,8 @@ class App extends Component {
   fetchGithubData = () => {
     const user = 'd-kang'
     console.log('user',user)
-    const me = fetch(`https://github.com/${user}`)
-    .then((res) => res.toJSON())
+    const me = fetch(`https://api.github.com/users/${user}`)
+    .then((res) => res.json())
     .then((res) => console.log('res', res))
     console.log('me', me);
   }
@@ -33,7 +33,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h1>Welcome!!!!!!</h1>
+        <h1>Welcome!!</h1>
         {this.state.orange}
 
 
