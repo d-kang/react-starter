@@ -2,28 +2,31 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class App extends Component {
-  state = {
-    count: 0,
-  };
-
-  myStr = 'counter1';
-
   addCount = () => {
-    this.setState({ count: this.state.count += 1 });
+    this.props.count++
   }
 
-  render = () => (
-    <div>
-      <div>{ `${this.myStr} ${this.state.count}` }</div>
-      <input
-        type="button"
-        value="button"
-        onClick={this.addCount}
-      />
-    </div>
-  )
+  render() {
+    console.log('<App /> this.props', this.props)
+    return (
+      <div>
+        <div>{ `${this.props.myStr} ${this.props.count}` }</div>
+        <input
+          type="button"
+          value="button"
+          onClick={this.addCount}
+        />
+      </div>
+    );
+  }
 }
 
+function mapState(...rest) {
+  console.log('mapState ...rest', rest)
+  return {
+    count: 0,
+    myStr: 'counter',
+  };
+}
 
-
-export default connect()(App);
+export default connect(mapState)(App);

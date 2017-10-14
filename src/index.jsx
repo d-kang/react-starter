@@ -1,11 +1,14 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-
+import { createStore, combineReducers } from 'redux';
 import App from './components/App';
 
-const reducers = (state = {}, action) => {
+const initialState = {
+  count: 0,
+};
+
+const myCountReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'INCREMENT':
       return state.count += 1;
@@ -14,7 +17,15 @@ const reducers = (state = {}, action) => {
   }
 };
 
-const store = createStore(reducers);
+const reducers = combineReducers({
+  global: myCountReducer,
+});
+
+
+
+
+
+const store = createStore(reducers, {});
 
 
 const Main = () => (
