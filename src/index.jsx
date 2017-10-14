@@ -13,7 +13,7 @@ const myCountReducer = (state = initialState, action) => {
     case 'INCREMENT':
       return {
         ...state,
-        count: state.count += 1
+        count: state.count += 1,
       };
     default:
       return state;
@@ -24,16 +24,11 @@ const reducers = combineReducers({
   global: myCountReducer,
 });
 
-
-
-
-
 const store = createStore(reducers, {});
-
 
 const Main = () => (
   <Provider store={store}>
-    <App />
+    <App myStr="hi world" />
   </Provider>
 );
 
