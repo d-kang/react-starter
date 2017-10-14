@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 class App extends Component {
   addCount = () => {
-    this.props.dispatch()
+    this.props.myActionCreator();
   }
 
   render() {
