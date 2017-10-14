@@ -4,12 +4,16 @@ import PropTypes from 'prop-types';
 
 class App extends Component {
   static propTypes = {
-    myActionCreator: PropTypes.func.isRequired,
+    increment: PropTypes.func.isRequired,
+    decrement: PropTypes.func.isRequired,
     myStr: PropTypes.string.isRequired,
     count: PropTypes.number.isRequired,
   }
   addCount = () => {
-    this.props.myActionCreator();
+    this.props.increment();
+  }
+  subCount = () => {
+    this.props.decrement();
   }
 
   render() {
@@ -19,8 +23,13 @@ class App extends Component {
         <div>{ `${this.props.myStr} ${this.props.count}` }</div>
         <input
           type="button"
-          value="button"
+          value="Add"
           onClick={this.addCount}
+        />
+        <input
+          type="button"
+          value="Subtract"
+          onClick={this.subCount}
         />
       </div>
     );
@@ -37,11 +46,16 @@ function mapState(...rest) {
   };
 }
 
-function myActionCreator() {
+function increment() {
   return {
     type: 'INCREMENT',
   };
 }
+function decrement() {
+  return {
+    type: 'DECREMENT',
+  };
+}
 
 
-export default connect(mapState, { myActionCreator })(App);
+export default connect(mapState, { increment, decrement })(App);
