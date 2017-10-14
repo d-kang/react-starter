@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 class App extends Component {
   addCount = () => {
-    this.props.count++
+    this.props.dispatch()
   }
 
   render() {
@@ -23,10 +23,18 @@ class App extends Component {
 
 function mapState(...rest) {
   console.log('mapState ...rest', rest)
+  const [ arg1, arg2 ] = rest;
+  console.log('arg1', arg1, 'arg2', arg2)
+
   return {
-    count: 0,
-    myStr: 'counter',
+    count: arg1.global.count
   };
 }
 
-export default connect(mapState)(App);
+function myActionCreator() {
+  return {
+    type: 'INCREMENT',
+  };
+}
+
+export default connect(mapState, { myActionCreator })(App);
