@@ -5,11 +5,11 @@ module.exports = {
   entry: './src/index.jsx',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'public')
+    path: path.resolve(__dirname, 'public'),
   },
   devtool: 'cheap-eval-source-map',
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
   },
   module: {
     rules: [
@@ -32,10 +32,10 @@ module.exports = {
     stats: 'errors-only',
     open: false,
     hot: true,
-    historyApiFallback: true
+    historyApiFallback: true,
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
-  ]
+  ],
 };

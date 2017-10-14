@@ -5,7 +5,7 @@ import { createStore } from 'redux';
 
 import App from './components/App';
 
-const reducers = (state = 0, action) => {
+const reducers = (state = {}, action) => {
   switch (action.type) {
     case 'INCREMENT':
       return state.count += 1;
@@ -14,7 +14,7 @@ const reducers = (state = 0, action) => {
   }
 };
 
-let store = createStore(reducers);
+const store = createStore(reducers);
 
 
 const Main = () => (
