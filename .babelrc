@@ -1,11 +1,14 @@
 {
   "presets": [
+    "react",
+    "stage-2",
     ["env", {
       "targets": {
-        "node": "current"
-      }
-    }],
-    "react",
-    "stage-2"
-  ]
+        "browsers": "last 2 versions"
+      },
+      "loose": true,
+      "modules": false
+    }]
+  ],
+  "plugins": ["transform-class-properties"]
 }
