@@ -2,6 +2,7 @@ import {
   createStore,
   combineReducers,
   applyMiddleware,
+  compose,
 } from 'redux';
 
 import logger from 'redux-logger';
@@ -32,4 +33,4 @@ const reducers = combineReducers({
   global: myCountReducer,
 });
 
-export default createStore(reducers, applyMiddleware(logger));
+export default createStore(reducers, compose(applyMiddleware(logger), window.devToolsExtension()));

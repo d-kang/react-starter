@@ -2,23 +2,26 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-  entry: './src/index.jsx',
+  entry: ['react-hot-loader/patch', './src/index.jsx'],
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'public'),
   },
-  devtool: 'cheap-eval-source-map',
+  // devtool: 'cheap-eval-source-map',
+  devtool: 'eval',
   resolve: {
-    extensions: ['.js', '.jsx', '.es6.js'],
+    extensions: ['.js', '.jsx'],
   },
   module: {
     rules: [
       {
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: 'babel-loader',
-        },
+        use: [
+          {
+            loader: 'babel-loader',
+          },
+        ],
       },
     ],
   },
