@@ -17,7 +17,6 @@ class App extends Component {
   }
 
   render() {
-    console.log('<App /> this.props', this.props);
     return (
       <div>
         <div>{ `${this.props.myStr} ${this.props.count}` }</div>
@@ -37,10 +36,7 @@ class App extends Component {
 }
 
 function mapState(...rest) {
-  console.log('mapState ...rest', rest);
   const [arg1, arg2] = rest;
-  console.log('arg1', arg1, 'arg2', arg2);
-
   return {
     count: arg1.global.count,
   };
