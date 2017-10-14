@@ -5,23 +5,31 @@ import { AppContainer } from 'react-hot-loader';
 import store from './store';
 import App from './components/App';
 
-const rootId = document.getElementById('root');
+const rootElement = document.getElementById('root');
 
-const RenderApp = (Component) => {
-  render(
-    <Provider store={store}>
-      <AppContainer>
-        <Component myStr="Hello World!!" />
-      </AppContainer>
-    </Provider>,
-    rootId,
-  );
-};
 
-RenderApp(App);
+render(
+  <Provider store={store}>
+    <AppContainer>
+      <App />
+    </AppContainer>
+  </Provider>,
+  rootElement,
+);
+
+
 
 // Webpack Hot Module Replacement API
-console.log('module.hot isTrue', module.hot===true, module.hot);
 if (module.hot) {
-  module.hot.accept('./components/App', () => { RenderApp(App) });
+  module.hot.accept('./components/App', () => {
+    const NextApp = require('./components/App').default;
+    render(
+      <Provider store={store}>
+        <AppContainer>
+          <NextApp />
+        </AppContainer>
+      </Provider>,
+      rootElement,
+    );
+  });
 }

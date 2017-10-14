@@ -2,7 +2,11 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-  entry: ['react-hot-loader/patch', './src/index.jsx'],
+  entry: [
+    'react-hot-loader/patch',
+    'webpack/hot/only-dev-server',
+    './src/index.jsx',
+  ],
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'public'),
@@ -21,6 +25,9 @@ module.exports = {
           {
             loader: 'babel-loader',
           },
+          // {
+          //   loader: 'react-hot-loader/webpack',
+          // },
         ],
       },
     ],

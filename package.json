@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "devserver": "webpack-dev-server",
+    "hot": "webpack-dev-server --progress",
     "prod": "webpack -p",
     "test": "jest"
   },

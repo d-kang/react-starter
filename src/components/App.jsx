@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 class App extends Component {
+  state ={
+    orange: 'banana',
+  }
   static propTypes = {
     increment: PropTypes.func.isRequired,
     decrement: PropTypes.func.isRequired,
@@ -11,14 +14,29 @@ class App extends Component {
   }
   addCount = () => {
     this.props.increment();
+    this.setState({orange: 'oranges'})
   }
   subCount = () => {
     this.props.decrement();
+    this.setState({orange: 'banana'})
+  }
+
+  fetchGithubData = () => {
+    const user = 'd-kang'
+    console.log('user',user)
+    const me = fetch(`https://github.com/${user}`)
+    .then((res) => res.toJSON())
+    .then((res) => console.log('res', res))
+    console.log('me', me);
   }
 
   render() {
     return (
       <div>
+        <h1>Welcome!!!!!!</h1>
+        {this.state.orange}
+
+
         <div>{ `${this.props.myStr} ${this.props.count}` }</div>
         <input
           type="button"
@@ -29,6 +47,11 @@ class App extends Component {
           type="button"
           value="Subtract"
           onClick={this.subCount}
+        />
+        <input
+          type="button"
+          value="Github"
+          onClick={this.fetchGithubData}
         />
       </div>
     );
