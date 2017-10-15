@@ -6,34 +6,33 @@ class GenericFormField extends PureComponent {
     queryStr: '',
     submitPressed: false,
   }
-
-  handleSubmit = (e) => {
-    e.preventDefault();
-    this.setState({ submitPressed: true });
-    console.log('queryStr Submitted', this.state.queryStr);
-  }
   setQueryStr = (e) => {
     this.setState({
       submitPressed: false,
       queryStr: e.target.value,
     });
   }
-
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.setState({ submitPressed: true });
+    console.log('queryStr Submitted', this.state.queryStr);
+  }
   render() {
     return (
       <form
         onSubmit={this.handleSubmit}
-        action="">
+        action=""
+      >
         <input
           onChange={this.setQueryStr}
           type="text"
         />
         <button>Form Button</button>
         <br />
-        {!this.state.submitPressed ? "Text Input:" : "Text Submitted:"}
+        {!this.state.submitPressed ? 'Text Input:' : 'Text Submitted:'}
         {'  '}{this.state.queryStr}
       </form>
-    )
+    );
   }
 }
 
