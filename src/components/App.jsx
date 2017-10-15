@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 export class App extends Component {
-  static propTypes = {
-    increment: PropTypes.func.isRequired,
-    decrement: PropTypes.func.isRequired,
-    count: PropTypes.number.isRequired,
-  }
+  // static propTypes = {
+  //   addCount: PropTypes.func,
+  //   subCount: PropTypes.func,
+  //   count: PropTypes.number.isRequired,
+  // }
   state = {
     hasError: false,
     orange: 'bananas',
@@ -16,8 +16,7 @@ export class App extends Component {
     this.setState({ hasError: true });
     console.log('1111111', err, info);
   }
-  myStr = 'Count is'
-  welcome = 'Welcome!!!'
+
   addCount = () => {
     this.props.increment();
     this.setState({ orange: 'orange' });
@@ -82,12 +81,15 @@ export class App extends Component {
       return <h1>Something went wrong.</h1>
     }
     return (
+
+
       <div>
-        <h1>{this.welcome}</h1>
+        <h1>{this.props.welcome}</h1>
+        <div>{`${this.props.myStr} ${this.props.count}` }</div>
         {this.state.orange}
 
 
-        <div>{ `${this.props.count}` }</div>
+
         <input
           type="button"
           value="Add"
@@ -112,6 +114,18 @@ export class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  count: PropTypes.number.isRequired,
+  myStr: PropTypes.string,
+  welcome: PropTypes.string,
+};
+
+App.defaultProps = {
+  myStr: 'Count is',
+  welcome: 'Welcome!!!',
+};
+
 
 function mapState(...rest) {
   const [arg1] = rest;
