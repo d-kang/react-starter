@@ -6,13 +6,18 @@ class App extends Component {
   static propTypes = {
     increment: PropTypes.func.isRequired,
     decrement: PropTypes.func.isRequired,
-    myStr: PropTypes.string.isRequired,
     count: PropTypes.number.isRequired,
   }
   state = {
+    hasError: false,
     orange: 'bananas',
   }
+  componentDidCatch(err, info) {
+    this.setState({ hasError: true });
+    console.log('1111111', err, info);
+  }
   myStr = 'Count is'
+  welcome = 'Welcome!!!'
   addCount = () => {
     this.props.increment();
     this.setState({ orange: 'orange' });
@@ -30,10 +35,10 @@ class App extends Component {
   }
 
   asyncAwait = () => {
-    console.log('asyncAwait RAN!!')
+    console.log('asyncAwait RAN!!');
     function breath(amount) {
       return new Promise((resolve, reject) => {
-        if (amount < 500){
+        if (amount < 500) {
           reject('That is too small of a value');
         }
         setTimeout(() => resolve(`Done for ${amount} ms`), amount);
@@ -51,8 +56,6 @@ class App extends Component {
     breath(600)
       .then(console.log)
       .catch(console.error);
-
-
 
     async function go() {
       try {
@@ -75,9 +78,12 @@ class App extends Component {
   }
 
   render() {
+    if (this.state.hasError) {
+      return <h1>Something went wrong.</h1>
+    }
     return (
       <div>
-        <h1>Welcome!!</h1>
+        <h1>{this.welcome}</h1>
         {this.state.orange}
 
 

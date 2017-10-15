@@ -5,6 +5,5 @@ import App from '../components/App';
 describe('App', () => {
   it('renders correctly', () => {
     const tree = renderer.create(<App />).toJSON();
-    console.log('tree', tree);
   });
 });

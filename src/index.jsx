@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { AppContainer } from 'react-hot-loader';
+import { AppContainer as Container } from 'react-hot-loader';
 import store from './store';
 import App from './components/App';
 
@@ -10,9 +10,9 @@ const rootElement = document.getElementById('root');
 
 render(
   <Provider store={store}>
-    <AppContainer>
+    <Container>
       <App />
-    </AppContainer>
+    </Container>
   </Provider>,
   rootElement,
 );
@@ -23,9 +23,9 @@ if (module.hot) {
     const NextApp = require('./components/App').default;
     render(
       <Provider store={store}>
-        <AppContainer>
+        <Container>
           <NextApp />
-        </AppContainer>
+        </Container>
       </Provider>,
       rootElement,
     );
