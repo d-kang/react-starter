@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-// import GenericFormField from './GenericFormField';
+import GenericFormField from './GenericFormField';
 
 export class App extends Component {
   state = {
@@ -97,7 +97,7 @@ export class App extends Component {
           value="Async Await"
           onClick={this.asyncAwait}
         />
-        {/* <GenericFormField /> */}
+        <GenericFormField />
       </div>
     );
   }
