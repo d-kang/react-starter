@@ -4,24 +4,23 @@ import React, { PureComponent } from 'react';
 class GenericFormField extends PureComponent {
   state = {
     queryStr: '',
-    submitPressed: false,
+    savedSearchInput: '',
+    submitWasPressed: false,
     githubResponse: {},
   }
-  setQueryStr = (e) => {
+  setQueryStrOnChange = (e) => {
     this.setState({
-      submitPressed: false,
+      submitWasPressed: false,
       queryStr: e.target.value,
     });
-  }
-  handleSubmit = (e) => {
-    console.log('queryStr Submitted', );
   }
   fetchGithubData = (e) => {
     e.preventDefault();
     const user = this.state.queryStr;
     this.setState({
-      submitPressed: true,
+      submitWasPressed: true,
       queryStr: '',
+      savedSearchInput: user,
     });
     fetch(`https://api.github.com/users/${user}`)
       .then(res => res.json())
@@ -37,13 +36,14 @@ class GenericFormField extends PureComponent {
         action=""
       >
         <input
-          onChange={this.setQueryStr}
+          onChange={this.setQueryStrOnChange}
           type="text"
         />
         <button>Form Button</button>
         <br />
-        {!this.state.submitPressed ? 'Text Input:' : 'Text Submitted:'}
-        {'  '}{this.state.queryStr}
+        {!this.state.submitWasPressed
+          ? `Text Input: ${this.state.queryStr}`
+          : `You Searched For User: ${this.state.savedSearchInput}`}
         <br />
         {JSON.stringify(this.state.githubResponse)}
       </form>
