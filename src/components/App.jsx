@@ -132,4 +132,6 @@ function decrement() {
 }
 
 
-export default connect(mapState, { increment, decrement })(App);
+const ConnectedApp = connect(mapState, { increment, decrement })(App);
+
+export { ConnectedApp, App };

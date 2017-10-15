@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { AppContainer as Container } from 'react-hot-loader';
 import store from './store';
-import App from './components/App';
+import { ConnectedApp } from './components/App';
 
 const rootElement = document.getElementById('root');
 
@@ -11,7 +11,7 @@ const rootElement = document.getElementById('root');
 render(
   <Provider store={store}>
     <Container>
-      <App />
+      <ConnectedApp />
     </Container>
   </Provider>,
   rootElement,
