@@ -33,4 +33,7 @@ const reducers = combineReducers({
   global: myCountReducer,
 });
 
-export default createStore(reducers, compose(applyMiddleware(logger), window.devToolsExtension()));
+// export default createStore(reducers, compose(applyMiddleware(logger), window.devToolsExtension()));
+export default createStore(reducers, compose(applyMiddleware(logger)));
+
+export { reducers };

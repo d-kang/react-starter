@@ -78,18 +78,14 @@ export class App extends Component {
 
   render() {
     if (this.state.hasError) {
-      return <h1>Something went wrong.</h1>
+      return <h1>Something went wrong.</h1>;
     }
     return (
-
-
       <div>
         <h1>{this.props.welcome}</h1>
-        <div>{`${this.props.myStr} ${this.props.count}` }</div>
-        {this.state.orange}
-
-
-
+        <div>
+          {`${this.props.myStr} ${this.props.count} ${this.state.orange}` }
+        </div>
         <input
           type="button"
           value="Add"
@@ -144,6 +140,7 @@ function decrement() {
     type: 'DECREMENT',
   };
 }
+
 
 
 export default connect(mapState, { increment, decrement })(App);
