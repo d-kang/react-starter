@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-class App extends Component {
+export class App extends Component {
   static propTypes = {
     increment: PropTypes.func.isRequired,
     decrement: PropTypes.func.isRequired,
@@ -132,6 +132,4 @@ function decrement() {
 }
 
 
-const ConnectedApp = connect(mapState, { increment, decrement })(App);
-
-export { ConnectedApp, App };
+export default connect(mapState, { increment, decrement })(App);
