@@ -3,31 +3,29 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 class App extends Component {
-  state ={
-    orange: 'bananas',
-  }
   static propTypes = {
     increment: PropTypes.func.isRequired,
     decrement: PropTypes.func.isRequired,
     myStr: PropTypes.string.isRequired,
     count: PropTypes.number.isRequired,
   }
+  state = {
+    orange: 'bananas',
+  }
   addCount = () => {
     this.props.increment();
-    this.setState({orange: 'orange'})
+    this.setState({ orange: 'orange' });
   }
   subCount = () => {
     this.props.decrement();
-    this.setState({orange: 'banana'})
+    this.setState({ orange: 'banana' });
   }
 
   fetchGithubData = () => {
-    const user = 'd-kang'
-    console.log('user',user)
-    const me = fetch(`https://api.github.com/users/${user}`)
-    .then((res) => res.json())
-    .then((res) => console.log('res', res))
-    console.log('me', me);
+    const user = 'd-kang';
+    fetch(`https://api.github.com/users/${user}`)
+      .then(res => res.json())
+      .then(res => console.log('res', res));
   }
 
   render() {
@@ -59,7 +57,7 @@ class App extends Component {
 }
 
 function mapState(...rest) {
-  const [arg1, arg2] = rest;
+  const [arg1] = rest;
   return {
     count: arg1.global.count,
   };
