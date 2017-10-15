@@ -17,12 +17,6 @@ export class App extends Component {
   subCount = () => {
     this.props.decrement();
   }
-  fetchGithubData = () => {
-    const user = 'd-kang';
-    fetch(`https://api.github.com/users/${user}`)
-      .then(res => res.json())
-      .then(res => console.log('res', res));
-  }
   asyncAwait = () => {
     console.log('asyncAwait RAN!!');
     function breath(amount) {
@@ -86,11 +80,6 @@ export class App extends Component {
           type="button"
           value="Subtract"
           onClick={this.subCount}
-        />
-        <input
-          type="button"
-          value="Github"
-          onClick={this.fetchGithubData}
         />
         <input
           type="button"

@@ -5,6 +5,7 @@ class GenericFormField extends PureComponent {
   state = {
     queryStr: '',
     submitPressed: false,
+    githubResponse: {},
   }
   setQueryStr = (e) => {
     this.setState({
@@ -13,14 +14,26 @@ class GenericFormField extends PureComponent {
     });
   }
   handleSubmit = (e) => {
+    console.log('queryStr Submitted', );
+  }
+  fetchGithubData = (e) => {
     e.preventDefault();
-    this.setState({ submitPressed: true });
-    console.log('queryStr Submitted', this.state.queryStr);
+    const user = this.state.queryStr;
+    this.setState({
+      submitPressed: true,
+      queryStr: '',
+    });
+    fetch(`https://api.github.com/users/${user}`)
+      .then(res => res.json())
+      .then((res) => {
+        console.log('res', res);
+        this.setState({ githubResponse: res });
+      });
   }
   render() {
     return (
       <form
-        onSubmit={this.handleSubmit}
+        onSubmit={this.fetchGithubData}
         action=""
       >
         <input
@@ -31,6 +44,8 @@ class GenericFormField extends PureComponent {
         <br />
         {!this.state.submitPressed ? 'Text Input:' : 'Text Submitted:'}
         {'  '}{this.state.queryStr}
+        <br />
+        {JSON.stringify(this.state.githubResponse)}
       </form>
     );
   }

@@ -12,7 +12,7 @@ const count = store.getState().global
 
 
 describe('App', () => {
-  it('renders correctly', () => {
+  it('renders coctly', () => {
     const tree = renderer.create(
       <ConnectedApp store={store}>
         <App {...count}/>
