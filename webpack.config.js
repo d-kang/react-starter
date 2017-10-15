@@ -5,6 +5,7 @@ module.exports = {
   entry: [
     'react-hot-loader/patch',
     'webpack/hot/only-dev-server',
+    'babel-polyfill',
     './src/index.jsx',
   ],
   output: {
