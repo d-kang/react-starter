@@ -1,26 +1,15 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { createStore } from 'redux';
-import ConnectedApp, { App } from '../components/App';
-import { reducers } from '../store';
+import { App } from '../components/App';
 
-
-const store = createStore(reducers);
-
-
-const count = store.getState().global
-
+const props = {
+  increment: jest.fn(() => this.props.count + 1),
+  decrement: jest.fn(() => this.props.count - 1),
+  count: 0,
+};
 
 describe('App', () => {
-  it('renders coctly', () => {
-    const tree = renderer.create(
-      <ConnectedApp store={store}>
-        <App {...count}/>
-      </ConnectedApp>
-    ).toJSON();
-    console.log('App.props', App.props);
-    console.log('store', store)
-    console.log('count', count);
-    console.log('tree', tree);
+  it('renders correctly', () => {
+    const tree = renderer.create(<App {...props}/>).toJSON();
   });
 });
