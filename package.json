@@ -8,7 +8,8 @@
     "hot": "webpack-dev-server --progress",
     "prod": "webpack -p",
     "test": "jest",
-    "test:watch": "npm test -- --watch"
+    "test:watch": "npm test -- --watch",
+    "webpack:backend": "nodemon build/backend-bundle.js & webpack -wd"
   },
   "author": "",
   "license": "ISC",
