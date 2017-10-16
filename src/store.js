@@ -29,8 +29,31 @@ const myCountReducer = (state = initialState, action) => {
   }
 };
 
+const asyncInitialState = {
+  githubResponse: {},
+};
+
+const myAsyncFunc = (state = asyncInitialState, action) => {
+  console.log(`myAsyncFunc reducer has RAN with state ->>> ${state.githubResponse}`)
+  console.log('action.type', action.type)
+  switch (action.type) {
+    case 'FETCH_GITHUB_DATA':
+      return {
+        ...state,
+        githubResponse: action.githubResponse,
+      };
+    default:
+      return state;
+  }
+};
+
+
+
+
+
 const reducers = combineReducers({
   global: myCountReducer,
+  async: myAsyncFunc,
 });
 
 // export default createStore(reducers, compose(applyMiddleware(logger), window.devToolsExtension()));
