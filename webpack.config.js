@@ -46,28 +46,28 @@ module.exports = [
       new webpack.NamedModulesPlugin(),
     ],
   },
-  {
-    target: 'node',
-    externals: [nodeExternals()],
-    entry: ['babel-polyfill', './server/index.js'],
-    output: {
-      filename: 'backend-bundle.js',
-      path: path.resolve(__dirname, 'build'),
-    },
-    devtool: 'eval',
-    resolve: {
-      extensions: ['.js'],
-    },
-    module: {
-      rules: [
-        {
-          test: /\.js$/,
-          exclude: /(node_modules|bower_components)/,
-          use: {
-            loader: 'babel-loader',
-          },
-        },
-      ],
-    },
-  },
+  // {
+  //   target: 'node',
+  //   externals: [nodeExternals()],
+  //   entry: ['babel-polyfill', './server/index.js'],
+  //   output: {
+  //     filename: 'backend-bundle.js',
+  //     path: path.resolve(__dirname, 'build'),
+  //   },
+  //   devtool: 'eval',
+  //   resolve: {
+  //     extensions: ['.js'],
+  //   },
+  //   module: {
+  //     rules: [
+  //       {
+  //         test: /\.js$/,
+  //         exclude: /(node_modules|bower_components)/,
+  //         use: {
+  //           loader: 'babel-loader',
+  //         },
+  //       },
+  //     ],
+  //   },
+  // },
 ];
