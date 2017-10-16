@@ -25,19 +25,17 @@ class GenericFormField extends PureComponent {
     const self = this;
 
     async function go() {
-      try {
-        const response = await fetch(`https://api.github.com/users/${user}`);
-        console.log('response', response);
-        const jsonData = await (response.json());
-        console.log('jsonData', jsonData);
-        self.setState({ githubResponse: jsonData });
-      } catch (err) {
-        console.log('Ohhhh nooo!!!!');
-        console.log(err);
-      }
+      const response = await fetch(`https://api.github.com/users/${user}`);
+      console.log('response', response);
+      const jsonData = await (response.json());
+      console.log('jsonData', jsonData);
+      self.setState({ githubResponse: jsonData });
     }
-    
-    go();
+    go()
+      .catch((err) => {
+        console.error('Uh oh!! Something went wrong');
+        console.error(err);
+      });
 
     // .then(res => res.json())
     // .then((res) => {
