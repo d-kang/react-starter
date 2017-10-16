@@ -34,8 +34,6 @@ const asyncInitialState = {
 };
 
 const myAsyncFunc = (state = asyncInitialState, action) => {
-  console.log(`myAsyncFunc reducer has RAN with state ->>> ${state.githubResponse}`)
-  console.log('action.type', action.type)
   switch (action.type) {
     case 'FETCH_GITHUB_DATA':
       return {
@@ -46,9 +44,6 @@ const myAsyncFunc = (state = asyncInitialState, action) => {
       return state;
   }
 };
-
-
-
 
 
 const reducers = combineReducers({

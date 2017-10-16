@@ -6,7 +6,6 @@ class GenericFormField extends PureComponent {
     queryStr: '',
     savedSearchInput: '',
     submitWasPressed: false,
-    // githubResponse: {},
   }
   setQueryStrOnChange = (e) => {
     this.setState({
@@ -25,10 +24,7 @@ class GenericFormField extends PureComponent {
     const self = this;
     async function go() {
       const response = await fetch(`https://api.github.com/users/${user}`);
-      console.log('response', response);
       const data = await (response.json());
-      console.log('data', data);
-      // self.setState({ githubResponse: data });
       self.props.fetchGithubData(data);
     }
     go()
@@ -36,7 +32,6 @@ class GenericFormField extends PureComponent {
         console.error('Uh oh!! Something went wrong');
         console.error(err);
       });
-    console.log('this.props', this.props);
   }
   render() {
     return (
@@ -62,7 +57,6 @@ class GenericFormField extends PureComponent {
 
 
 function fetchGithubData(githubResponse) {
-  console.log('fetchGithubData action creator RAN');
   return {
     type: 'FETCH_GITHUB_DATA',
     githubResponse,
@@ -70,9 +64,6 @@ function fetchGithubData(githubResponse) {
 }
 
 function mapState(state) {
-  console.log('mapped state to props in Generic Form Field')
-  console.log('args', JSON.stringify(state))
-  console.log('state', state)
   return {
     githubResponse: state.async.githubResponse,
   };
