@@ -22,12 +22,30 @@ class GenericFormField extends PureComponent {
       queryStr: '',
       savedSearchInput: user,
     });
-    fetch(`https://api.github.com/users/${user}`)
-      .then(res => res.json())
-      .then((res) => {
-        console.log('res', res);
-        this.setState({ githubResponse: res });
-      });
+    const self = this;
+
+    async function go() {
+      try {
+        const response = await fetch(`https://api.github.com/users/${user}`);
+        console.log('response', response);
+        const jsonData = await (response.json());
+        console.log('jsonData', jsonData);
+        self.setState({ githubResponse: jsonData });
+      } catch (err) {
+        console.log('Ohhhh nooo!!!!');
+        console.log(err);
+      }
+    }
+    
+    go();
+
+    // .then(res => res.json())
+    // .then((res) => {
+    //   console.log('res', res);
+    //   this.setState({ githubResponse: res });
+    // });
+
+
   }
   render() {
     return (
