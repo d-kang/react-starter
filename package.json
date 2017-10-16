@@ -9,7 +9,7 @@
     "prod": "webpack -p",
     "test": "jest",
     "test:watch": "npm test -- --watch",
-    "webpack:backend": "nodemon build/backend-bundle.js & webpack -wd"
+    "webpack:server": "nodemon build/backend-bundle.js & webpack -wd"
   },
   "author": "",
   "license": "ISC",
@@ -39,6 +39,7 @@
     "babel-polyfill": "^6.26.0",
     "body-parser": "^1.18.2",
     "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
     "express": "^4.16.2",
     "prop-types": "^15.6.0",
     "react": "^16.0.0",

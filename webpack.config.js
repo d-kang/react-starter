@@ -35,7 +35,7 @@ module.exports = [
     devServer: {
       contentBase: path.resolve(__dirname, 'public'),
       compress: true,
-      port: 2500,
+      port: 1000,
       stats: 'errors-only',
       open: false,
       hot: true,
