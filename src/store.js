@@ -4,8 +4,8 @@ import {
   applyMiddleware,
   compose,
 } from 'redux';
-
 import logger from 'redux-logger';
+import thunk from 'redux-thunk';
 
 const initialState = {
   count: 0,
@@ -55,7 +55,7 @@ const reducers = combineReducers({
 export default createStore(
   reducers,
   compose(
-    applyMiddleware(logger),
+    applyMiddleware(logger, thunk),
     window.devToolsExtension(),
   ),
 );
