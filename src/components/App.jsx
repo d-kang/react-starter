@@ -12,6 +12,7 @@ export class App extends Component {
     console.log('1111111', err, info);
   }
   addCount = () => {
+    console.log('this.props', this.props);
     this.props.increment();
   }
   subCount = () => {
@@ -65,6 +66,7 @@ export class App extends Component {
     if (this.state.hasError) {
       return <h1>Something went wrong.</h1>;
     }
+    console.log('<App /> this', this);
     return (
       <div>
         <h1>{this.props.welcome}</h1>
@@ -106,13 +108,17 @@ App.defaultProps = {
 };
 
 function mapState(...rest) {
+  console.log('mapState ...rest', rest);
+
   const [arg1] = rest;
   return {
     count: arg1.global.count,
   };
 }
 
-function increment() {
+function increment(...args) {
+  console.log('hi inc here');
+  console.log('increment ...args', args);
   return {
     type: 'INCREMENT',
   };

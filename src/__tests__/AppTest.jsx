@@ -10,6 +10,7 @@ const props = {
 
 describe('App', () => {
   it('renders correctly', () => {
-    const tree = renderer.create(<App {...props}/>).toJSON();
+    const tree = renderer.create(<App {...props} />).toJSON();
+    console.log('tree', tree);
   });
 });

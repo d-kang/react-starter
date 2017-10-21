@@ -4,14 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "devserver": "webpack-dev-server",
-    "hot": "webpack-dev-server --progress",
+    "dev": "webpack-dev-server",
+    "server": "babel-node server",
     "prod": "webpack -p",
     "test": "jest",
-    "test:watch": "npm test -- --watch",
-    "webpack:server": "nodemon build/backend-bundle.js & webpack -wd"
+    "test:watch": "npm test -- --watch"
   },
-  "author": "",
+  "author": "David Kang",
   "license": "ISC",
   "devDependencies": {
     "babel-cli": "^6.26.0",
