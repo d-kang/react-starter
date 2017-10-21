@@ -43,7 +43,7 @@ class GenericFormField extends PureComponent {
           onChange={this.setQueryStrOnChange}
           type="text"
         />
-        <button>Form Button</button>
+        <button>Github-Handle</button>
         <br />
         {!this.state.submitWasPressed
           ? `Text Input: ${this.state.queryStr}`
