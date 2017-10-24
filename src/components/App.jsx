@@ -6,6 +6,7 @@ import Counter from './Counter';
 import Display from './Display';
 import Welcome from './Welcome';
 import AsyncFunc from './AsyncFunc';
+import PingObservable from './PingObservable';
 
 export class App extends Component {
   state = {
@@ -38,6 +39,10 @@ export class App extends Component {
         <br />
         <br />
         <GenericFormField />
+        <br />
+        <br />
+        <br />
+        <PingObservable />
       </div>
     );
   }
