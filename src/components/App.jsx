@@ -25,9 +25,18 @@ export class App extends Component {
     return (
       <div>
         <Welcome welcome={this.props.welcome} />
+        <br />
+        <br />
+        <br />
         <Display {...this.props} />
         <Counter {...this.props} />
+        <br />
+        <br />
+        <br />
         <AsyncFunc {...this.props} />
+        <br />
+        <br />
+        <br />
         <GenericFormField />
       </div>
     );
