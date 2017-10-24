@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import GenericFormField from './GenericFormField';
 import Counter from './Counter';
+import Display from './Display';
 
 export class App extends Component {
   state = {
@@ -65,9 +66,9 @@ export class App extends Component {
       <div>
         <h1>{this.props.welcome}</h1>
         <div>
-          {`${this.props.myStr} ${this.props.count} ${this.state.orange}` }
+          <Display {...this.props}/>
         </div>
-        <Counter {...this.props}/>
+        <Counter {...this.props} />
         <input
           type="button"
           value="Async Await"

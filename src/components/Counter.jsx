@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 class Counter extends Component {
+  
   addCount = () => {
     console.log('this.props', this.props);
     this.props.increment();
@@ -26,8 +27,5 @@ class Counter extends Component {
     );
   }
 }
-
-
-
 
 export default Counter;
