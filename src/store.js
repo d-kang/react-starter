@@ -12,6 +12,7 @@ import { createEpicMiddleware } from 'redux-observable';
 
 import 'rxjs/add/operator/delay';
 import 'rxjs/add/operator/mapTo';
+
 const initialState = {
   count: 0,
 };
@@ -79,7 +80,7 @@ const pingReducer = (state = { isPinging: false }, action) => {
 const reducers = combineReducers({
   global: myCountReducer,
   async: myAsyncFunc,
-  foo: pingReducer,
+  pingReducer,
 });
 
 

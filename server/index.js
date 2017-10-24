@@ -21,9 +21,13 @@ app.get('/test', (req, res) => {
 });
 
 
+// app.get('/*', (req, res) => {
+//   res.sendFile(path.join(process.env.PWD, 'public'));
+// });
+
 app.get('/*', (req, res) => {
-  res.sendFile(path.join(process.env.PWD, 'public'));
-});
+  res.sendFile(path.join(__dirname, 'index.html'))
+})
 
 app.listen(port, () => {
   console.log(`Listening on port http://localhost:${port}`);

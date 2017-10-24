@@ -11,16 +11,13 @@ let PingObservable = ({ isPinging, ping }) => {
 };
 
 
-const PING = 'PING';
-const PONG = 'PONG';
-
-const ping = () => ({ type: PING });
+const ping = () => ({ type: 'PING' });
 
 // const mapState = ({ isPinging }) => ({ isPinging });
 const mapState = (state) => {
   console.log('state', state)
   return {
-    isPinging: state.foo.isPinging,
+    isPinging: state.pingReducer.isPinging,
   }
 };
 
