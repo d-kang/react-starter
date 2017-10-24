@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import GenericFormField from './GenericFormField';
+import Counter from './Counter';
 
 export class App extends Component {
   state = {
@@ -10,13 +11,6 @@ export class App extends Component {
   componentDidCatch(err, info) {
     this.setState({ hasError: true });
     console.log('1111111', err, info);
-  }
-  addCount = () => {
-    console.log('this.props', this.props);
-    this.props.increment();
-  }
-  subCount = () => {
-    this.props.decrement();
   }
   asyncAwait = () => {
     console.log('asyncAwait RAN!!');
@@ -73,16 +67,7 @@ export class App extends Component {
         <div>
           {`${this.props.myStr} ${this.props.count} ${this.state.orange}` }
         </div>
-        <input
-          type="button"
-          value="Add"
-          onClick={this.addCount}
-        />
-        <input
-          type="button"
-          value="Subtract"
-          onClick={this.subCount}
-        />
+        <Counter {...this.props}/>
         <input
           type="button"
           value="Async Await"
