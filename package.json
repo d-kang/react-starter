@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server",
-    "server": "babel-node server",
+    "dev2": "webpack-dashboard -p 3001 -c blue -- webpack-dev-server",
+    "webpack": "webpack -wd",
+    "dashboard": "webpack-dashboard -p 3001 -t hi -c red -- node server/index.js",
+    "server": "node server/index.js",
     "prod": "webpack -p",
     "test": "jest",
     "test:watch": "npm test -- --watch"
@@ -31,6 +34,7 @@
     "morgan": "^1.9.0",
     "react-test-renderer": "^16.0.0",
     "webpack": "^3.6.0",
+    "webpack-dashboard": "^1.0.0",
     "webpack-dev-server": "^2.9.1",
     "webpack-node-externals": "^1.6.0"
   },

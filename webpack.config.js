@@ -1,7 +1,8 @@
 const path = require('path');
 const webpack = require('webpack');
-const nodeExternals = require('webpack-node-externals');
-const fs = require('fs');
+const DashboardPlugin = require('webpack-dashboard/plugin');
+// const nodeExternals = require('webpack-node-externals');
+// const fs = require('fs');
 
 module.exports = {
   entry: [
@@ -14,7 +15,7 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'public'),
   },
-  devtool: 'eval',
+  devtool: 'eval-source-map',
   resolve: {
     extensions: ['.js', '.jsx'],
   },
@@ -41,7 +42,8 @@ module.exports = {
     historyApiFallback: true,
   },
   plugins: [
+    new DashboardPlugin({ port: 3001 }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
   ],
-}
+};

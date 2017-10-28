@@ -30,7 +30,7 @@ export class App extends Component {
         <br />
         <br />
         <br />
-        <Display {...this.props} />
+        <Display {...this.props} >
         <Counter {...this.props} />
         <br />
         <br />

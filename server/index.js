@@ -1,9 +1,10 @@
-import express from 'express';
-import path from 'path';
-import bodyParser from 'body-parser';
-import cookieParser from 'cookie-parser';
-import morgan from 'morgan';
-import cors from 'cors';
+const express = require('express');
+const path = require('path');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const morgan = require('morgan');
+const cors = require('cors');
+
 
 const app = express();
 const port = process.env.PORT || 4500;
