@@ -2,8 +2,10 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { AppContainer as Container } from 'react-hot-loader';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import store from './store';
 import ConnectedApp from './components/App';
+import Welcome from './components/Welcome';
 
 const rootElement = document.getElementById('root');
 
@@ -11,7 +13,10 @@ const rootElement = document.getElementById('root');
 render(
   <Provider store={store}>
     <Container>
-      <ConnectedApp />
+      <Router>
+        <Route exact path="/" component={ConnectedApp} />
+        {/* <ConnectedApp /> */}
+      </Router>
     </Container>
   </Provider>,
   rootElement,
@@ -24,7 +29,8 @@ if (module.hot) {
     render(
       <Provider store={store}>
         <Container>
-          <NextApp />
+          <Route exact path="/" component={NextApp} />
+          {/* <NextApp /> */}
         </Container>
       </Provider>,
       rootElement,

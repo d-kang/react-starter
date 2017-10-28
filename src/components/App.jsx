@@ -7,6 +7,7 @@ import Display from './Display';
 import Welcome from './Welcome';
 import AsyncFunc from './AsyncFunc';
 import PingObservable from './PingObservable';
+import TypingGame from './TypingGame';
 
 export class App extends Component {
   state = {
@@ -43,6 +44,10 @@ export class App extends Component {
         <br />
         <br />
         <PingObservable />
+        <br />
+        <br />
+        <br />
+        <TypingGame />
       </div>
     );
   }
@@ -58,7 +63,7 @@ App.propTypes = {
 
 App.defaultProps = {
   myStr: 'Count is',
-  welcome: 'Welcome!!',
+  welcome: 'Welcome!',
 };
 
 function mapState(...rest) {
