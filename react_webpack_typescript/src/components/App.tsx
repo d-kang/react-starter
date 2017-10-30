@@ -11,7 +11,7 @@ class App extends React.Component<AppProps, {}> {
     return (
       <div>
         {this.props.welcome} <br />
-        <Hello compiler="TypeScript" framework="React" />
+        <Hello compiler="TypeScript" framework="React!" />
       </div>
 
     );
