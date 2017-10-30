@@ -1,1 +1,0 @@
-# react redux typscript starer
