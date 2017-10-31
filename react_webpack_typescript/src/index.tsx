@@ -5,5 +5,5 @@ import App from "./components/App";
 
 ReactDOM.render(
   <App welcome="Welcome to Typescript!"/>,
-  document.getElementById("example")
+  document.getElementById('root')
 );
