@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "webpack-dev-server ./webpack.config.js --content-base ./dist",
     "webpack": "webpack -wd",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,13 +16,14 @@
     "@types/react": "^16.0.18",
     "@types/react-dom": "^16.0.2",
     "react": "^16.0.0",
-    "react-dom": "^16.0.0",
-    "webpack": "^3.8.1"
+    "react-dom": "^16.0.0"
   },
   "devDependencies": {
     "@types/node": "^8.0.47",
-    "awesome-typescript-loader": "^3.2.3",
     "source-map-loader": "^0.2.3",
-    "typescript": "^2.5.3"
+    "ts-loader": "^3.1.1",
+    "typescript": "^2.5.3",
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.3"
   }
 }
